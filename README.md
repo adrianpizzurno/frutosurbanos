@@ -61,18 +61,23 @@ Frutos Urbanos no es solo una aplicación; es una **plataforma con potencial de 
 Estas imágenes muestran la interfaz principal y algunas de las interacciones clave disponibles en el prototipo funcional:
 
 1.  **Vista Principal del Mapa:** La interfaz central donde los usuarios visualizan los árboles existentes de pecan y palta en el mapa de General Pacheco, con marcadores que indican su tipo y estado de frutos.
+2.  
     ![Captura de Pantalla 1: Mapa Principal](screenshots/protipo01.jpg) 
 
-2.  **Añadir Árbol - Paso 1 (Posicionamiento):** Demostrando la capacidad de añadir un nuevo árbol al mapa, permitiendo al usuario arrastrar un marcador interactivo para definir la ubicación exacta.
+3.  **Añadir Árbol - Paso 1 (Posicionamiento):** Demostrando la capacidad de añadir un nuevo árbol al mapa, permitiendo al usuario arrastrar un marcador interactivo para definir la ubicación exacta.
+4.  
     ![Captura de Pantalla 2: Añadir - Posicionamiento](screenshots/protipo02.jpg) 
 
-3.  **Añadir Árbol - Paso 2 (Selección de Tipo):** Después de posicionar el árbol, el usuario selecciona fácilmente su tipo (Nuez Pecan o Palta) antes de guardarlo en el mapa.
+5.  **Añadir Árbol - Paso 2 (Selección de Tipo):** Después de posicionar el árbol, el usuario selecciona fácilmente su tipo (Nuez Pecan o Palta) antes de guardarlo en el mapa.
+6.  
     ![Captura de Pantalla 3: Añadir - Selección de Tipo](screenshots/protipo03.jpg) 
 
-4.  **Filtros de Mapa:** Permite a los usuarios personalizar su vista del mapa, mostrando solo los tipos de árboles o estados de frutos que les interesan (ej. solo paltas con frutos).
+7.  **Filtros de Mapa:** Permite a los usuarios personalizar su vista del mapa, mostrando solo los tipos de árboles o estados de frutos que les interesan (ej. solo paltas con frutos).
+8.  
     ![Captura de Pantalla 4: Filtros](screenshots/protipo04.jpg) 
 
-5.  **Menú de Navegación:** Acceso a información general sobre la aplicación y una visión de las futuras características planeadas, como opciones Premium y Publicidad (actualmente no funcionales en el prototipo).
+9.  **Menú de Navegación:** Acceso a información general sobre la aplicación y una visión de las futuras características planeadas, como opciones Premium y Publicidad (actualmente no funcionales en el prototipo).
+10.  
     ![Captura de Pantalla 5: Menú Lateral](screenshots/protipo05.jpg) 
 
 ---
