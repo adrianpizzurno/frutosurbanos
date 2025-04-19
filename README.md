@@ -67,13 +67,13 @@ Frutos Urbanos no es solo una aplicación; es una **plataforma con potencial de 
 ![Captura de Pantalla 3: Añadir Árbol](screenshots/anadir_arbol.png)
 *Demostración del flujo para añadir un nuevo árbol al mapa.*
 
----
-*(Asegúrate de tener una carpeta `screenshots/` en tu repositorio con imágenes representativas de tu prototipo y actualiza los nombres de archivo `mapa_principal.png`, `info_reporte.png`, `anadir_arbol.png` si son diferentes).*
 
 ## ¡Hablemos!
 
 Estamos buscando socios e inversores para hacer de Frutos Urbanos una realidad a gran escala. Si comparte nuestra visión de conectar a las personas con la naturaleza urbana y ve el potencial de esta plataforma, nos encantaría conversar.
 
-Por favor, contacte a:
+Por favor, contacte con:
+
 **Adrian Pizzurno**
+
 Correo Electrónico: **adrianpizzurnoprensa@gmail.com**
