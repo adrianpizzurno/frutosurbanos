@@ -58,14 +58,18 @@ Frutos Urbanos no es solo una aplicación; es una **plataforma con potencial de 
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1: Mapa Principal](screenshots/mapa_principal.png)
+![Captura de Pantalla 1: Mapa Principal](screenshots/protipo01.jpg)
 *El mapa interactivo mostrando árboles en General Pacheco.*
 
-![Captura de Pantalla 2: Información del Árbol y Reporte](screenshots/info_reporte.png)
+![Captura de Pantalla 2: Información del Árbol y Reporte](screenshots/protipo02.jpg)
 *Visualización de detalles del árbol y el proceso para reportar su estado.*
 
-![Captura de Pantalla 3: Añadir Árbol](screenshots/anadir_arbol.png)
+![Captura de Pantalla 3: Añadir Árbol](screenshots/protipo03.jpg)
 *Demostración del flujo para añadir un nuevo árbol al mapa.*
+
+screenshots/protipo4.jpg
+
+screenshots/protipo05.jpg
 
 
 ## ¡Hablemos!
