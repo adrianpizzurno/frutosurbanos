@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutos Urbanos - Prototipo</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra Superior -->
+    <div class="top-bar">
+        <button class="icon-btn" id="menu-btn"><i class="fas fa-bars"></i></button>
+        <span class="app-title">Frutos Urbanos</span>
+        <button class="icon-btn" id="filter-btn"><i class="fas fa-filter"></i></button>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Botón flotante para añadir árbol -->
+    <button id="add-tree-fab" class="fab-btn"><i class="fas fa-plus"></i></button>
+
+    <!-- Modales y Overlays -->
+
+    <!-- Modal de Información del Árbol -->
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button" data-modal="info-modal"><i class="fas fa-times"></i></button>
+            <img id="info-tree-image" src="images/tree-placeholder.jpg" alt="Imagen del árbol">
+            <div id="tree-info-details">
+                <h3 id="info-tree-type">Tipo de Árbol</h3>
+                <p><i class="fas fa-seedling"></i> Estado de Frutos: <strong id="info-tree-status"></strong></p>
+                <p><i class="fas fa-clock"></i> Última actualización: <span id="info-tree-updated"></span></p>
+            </div>
+            <div class="modal-actions">
+                 <button id="report-status-btn" class="btn primary">Reportar Estado</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Reportar Estado -->
+    <div id="report-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button" data-modal="report-modal"><i class="fas fa-times"></i></button>
+            <h4>¿Este árbol tiene frutos ahora?</h4>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="fruit_status" value="con" hidden>
+                    <span class="radio-circle"><i class="fas fa-check"></i></span>
+                    Sí, tiene frutos
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="fruit_status" value="sin" hidden>
+                    <span class="radio-circle"><i class="fas fa-times"></i></span>
+                    No, no tiene frutos
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-report-btn" class="btn primary">Confirmar</button>
+                <button class="btn secondary close-modal-btn" data-modal="report-modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay para Añadir Nuevo Árbol - Paso 1: Posicionar (Mensaje y botones sobre el mapa) -->
+    <div id="add-position-overlay" class="modal overlay hidden">
+         <div class="overlay-content">
+            <p>Arrastra el marcador para posicionar el árbol.</p>
+            <div class="modal-actions">
+                 <button id="confirm-position-btn" class="btn primary">Confirmar Ubicación</button>
+                 <button class="btn secondary close-modal-btn" data-modal="add-position-overlay">Cancelar</button>
+            </div>
+         </div>
+    </div>
+
+    <!-- Modal para Añadir Nuevo Árbol - Paso 2: Seleccionar Tipo -->
+     <div id="add-type-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button" data-modal="add-type-modal"><i class="fas fa-times"></i></button>
+            <h4>¿Qué tipo de árbol es?</h4>
+             <div class="radio-group tree-type-options">
+                <label class="radio-option">
+                    <input type="radio" name="tree_type" value="pecan" hidden>
+                     <span class="radio-circle type-icon"><img src="images/pecan-icon.png" alt="Icono Pecan"></span>
+                    Nuez Pecan
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="tree_type" value="palta" hidden>
+                     <span class="radio-circle type-icon"><img src="images/palta-icon.png" alt="Icono Palta"></span>
+                    Palta
+                </label>
+             </div>
+             <div class="modal-actions">
+                <button id="save-new-tree-btn" class="btn primary">Guardar Árbol</button>
+                <button class="btn secondary close-modal-btn" data-modal="add-type-modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Filtros -->
+     <div id="filter-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-button" data-modal="filter-modal"><i class="fas fa-times"></i></button>
+            <h4>Filtrar Árboles</h4>
+             <div class="filter-options">
+                <h5>Tipo de Árbol:</h5>
+                 <label class="checkbox-option">
+                    <input type="checkbox" name="filter_type" value="pecan" checked hidden>
+                     <span class="checkbox-box"><i class="fas fa-check"></i></span>
+                    Nuez Pecan
+                </label>
+                <label class="checkbox-option">
+                    <input type="checkbox" name="filter_type" value="palta" checked hidden>
+                     <span class="checkbox-box"><i class="fas fa-check"></i></span>
+                    Palta
+                </label>
+
+                <h5>Estado de Frutos:</h5>
+                <label class="checkbox-option">
+                    <input type="checkbox" name="filter_status" value="con" checked hidden>
+                     <span class="checkbox-box"><i class="fas fa-check"></i></span>
+                    Con Frutos
+                </label>
+                <label class="checkbox-option">
+                    <input type="checkbox" name="filter_status" value="sin" checked hidden>
+                     <span class="checkbox-box"><i class="fas fa-times"></i></span>
+                    Sin Frutos
+                </label>
+                 <label class="checkbox-option">
+                    <input type="checkbox" name="filter_status" value="desconocido" checked hidden>
+                     <span class="checkbox-box"><i class="fas fa-check"></i></span>
+                    Desconocido
+                </label>
+             </div>
+             <div class="modal-actions">
+                <button id="apply-filters-btn" class="btn primary">Aplicar Filtros</button>
+                <button class="btn secondary close-modal-btn" data-modal="filter-modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal de Menú Lateral (Dummy) -->
+    <div id="side-menu-modal" class="modal modal-side left hidden">
+        <div class="modal-content side-menu-content">
+            <button class="close-button" data-modal="side-menu-modal"><i class="fas fa-times"></i></button>
+            <h3>Menú Principal</h3>
+            <ul class="menu-list">
+                <li><i class="fas fa-info-circle"></i> Acerca de</li>
+                <li><i class="fas fa-cogs"></i> Ajustes</li>
+                <li><i class="fas fa-question-circle"></i> Ayuda</li>
+                 <li class="disabled"><i class="fas fa-crown"></i> Premium (Próximamente)</li>
+                 <li class="disabled"><i class="fas fa-bullhorn"></i> Publicidad (Próximamente)</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
